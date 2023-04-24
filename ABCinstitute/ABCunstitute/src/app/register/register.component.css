@@ -1,0 +1,30 @@
+.field{
+    
+    margin-left: 25%;
+    margin-right: 25%;
+    
+
+}
+.control{
+    margin-bottom: 3%;
+    
+}
+.label{
+
+    margin-top: 10%;
+}
+.control has-icons-left has-icons-right {
+    color: #883636;
+
+}
+.icon{
+    color: #b31616;
+
+}
+.nihal{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+button{
+    margin: 0px 50%;
+}

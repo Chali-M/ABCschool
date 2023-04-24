@@ -1,0 +1,82 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+      <p class="title">
+        PROGRAM
+      </p>
+      <p class="subtitle">
+        specialized
+      </p>
+    </div>
+  </section>
+
+  <div class="container mt-4" >
+    <div class="card">
+            <h1>Course Registation</h1>
+    
+    <form>
+        <div class="form-group">
+          <label>Course Name</label>
+          <input type="text" [(ngModel)]="stname" [ngModelOptions]="{standalone: true}" class="form-control" id="stname" placeholder="Enter Name">
+        </div>
+    
+        <div class="form-group">
+          <label>Course duration</label>
+          <input type="text" [(ngModel)]="course" [ngModelOptions]="{standalone: true}" class="form-control" id="course" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+            <label>Fee</label>
+            <input type="text" [(ngModel)]="fee" [ngModelOptions]="{standalone: true}" class="form-control" id="fee" placeholder="Enter Fee">
+          </div>
+
+
+    
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+       
+      </form>
+    </div>
+    
+  
+    
+        <div class="container mt-4" >
+            <h1>Student Table</h1>
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Loading.................</h1>      
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">program Name</th>
+                <th scope="col">Course duration</th>  
+                <th scope="col">Fee</th>  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let StudentItem of StudentArray">
+                <td>{{StudentItem.id  }}</td>
+                <td>{{StudentItem.stname }}</td>
+                <td>{{StudentItem.course }}</td>
+                <td>{{StudentItem.fee }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>
+                  <button type="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>            
+                </td>
+              </tr>          
+            </tbody>
+          </table>
+        </div>
+
+        <nav class="pagination" role="navigation" aria-label="pagination">
+          <a class="pagination-previous is-disabled" title="This is the first page">Previous</a>
+          <a class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li>
+              <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 2">2</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 3">3</a>
+            </li>
+          </ul>
+        </nav>

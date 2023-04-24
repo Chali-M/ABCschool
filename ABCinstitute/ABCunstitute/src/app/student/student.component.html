@@ -1,0 +1,126 @@
+<section class="hero is-warning">
+    <div class="hero-body">
+      <p class="title">
+        Student
+      </p>
+      <p class="subtitle">
+        Profile
+      </p>
+    </div>
+  </section>
+
+  <form>
+
+    <div class="field">
+      <label class="label">ID</label>
+      <div class="control">
+        <input class="help is-danger" class="input is-danger " type="text"  [(ngModel)]="id" [ngModelOptions]="{standalone: true}" class="form-control" id="id" placeholder="e.g IT9705864">
+      </div>
+      <p class="help is-danger">This is a help text</p>
+    </div>
+  
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" type="text"  [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="e.g Alex Smith">
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Adress</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-success" type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="form-control" id="address" placeholder="199/1,kandy road " >
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+      <p class="help is-success">HOME</p>
+    </div>
+    
+    
+    <div class="field">
+      <label class="label">Contact</label>
+      <div class="control">
+        <input class="input" type="text" [(ngModel)]="contact" [ngModelOptions]="{standalone: true}" class="form-control" id="contact" placeholder="e.g 0760355244">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input type="checkbox">
+          I agree to the <a href="#">terms and conditions</a>
+        </label>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="question">
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="question">
+          No
+        </label>
+        
+      </div>
+      
+    </div>
+    
+    <button type="submit" class="nihal" class="btn btn-warning"  (click)="save()" >Save</button>
+  </form>
+  
+  <div class="container mt-4" >
+      <h1>Student Table</h1>
+  <table class="table">
+      <thead>
+       <h1 *ngIf="!isResultLoaded">Loading.................</h1>      
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Address</th>  
+          <th scope="col">Contact Number</th>  
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let StudentItem of StudentArray">
+          <td>{{StudentItem.id  }}</td>
+          <td>{{StudentItem.name }}</td>
+          <td>{{StudentItem.address }}</td>
+          <td>{{StudentItem.contact }}</td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>            
+          </td>
+        </tr>          
+      </tbody>
+    </table>
+  </div>
+
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous is-disabled" title="This is the first page">Previous</a>
+    <a class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li>
+        <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 2">2</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 3">3</a>
+      </li>
+    </ul>
+  </nav>
